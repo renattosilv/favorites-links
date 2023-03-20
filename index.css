@@ -167,7 +167,6 @@ nav ul li:hover > button:hover ~ a {
 #controles {
   top: 1rem;
   padding: 1rem;
-  background-color: red;
   position: fixed;
   display: none;
   max-width: 30rem;

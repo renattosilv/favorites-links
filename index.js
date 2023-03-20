@@ -1,5 +1,12 @@
-const navBar = document.querySelector("nav")
+const navBar = document.querySelector("ul")
 const linksFavorites = JSON.parse(localStorage.getItem("dbLinks")) || []
+
+const menu = document.getElementById("menu")
+const controles = document.getElementById("controles").classList
+
+menu.addEventListener("click", () => {
+  controles.toggle("active")
+})
 
 const renderLink = (id, url, title, icoName) => {
   const newLi = document.createElement("li")

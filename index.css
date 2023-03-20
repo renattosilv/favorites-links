@@ -23,7 +23,7 @@ body * {
   font-size: 1.6rem;
 }
 
-nav {
+nav ul {
   padding: 1rem;
   min-height: calc(100vh - 6rem);
   display: flex;
@@ -42,7 +42,7 @@ li {
   transition: all .4s;
 }
 
-nav a {
+nav ul a {
   position: relative;
   background-color: rgb(63, 63, 63);
   color: white;
@@ -63,7 +63,7 @@ nav a {
   padding: 1rem;
 }
 
-nav button {
+nav ul button {
   display: none;
   background-color: #b1b1b1;
   cursor: pointer;
@@ -75,12 +75,11 @@ nav button {
   border: none;
   border-radius: 100%;
   transition: all .4s;
-  z-index: 100;
+  z-index: 90;
 }
-nav button > ion-icon {
+nav ul button > ion-icon {
   color: rgb(63, 63, 63);
 }
-
 
 ion-icon {
   color: white;
@@ -89,69 +88,107 @@ ion-icon {
 ion-icon {
   font-size: 2.4rem;
 }
-/*
-li:nth-last-child(-n + 1) a,
-li:nth-last-child(-n + 1) a ion-icon {
-  font-size: 4rem;
-}
-*/
+
 nav a:hover {
   background-color:rgb(0, 49, 141);
 }
 
-nav li:hover > button {
+nav ul li:hover > button {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-nav li:hover > button:hover {
+nav ul li:hover > button:hover {
   background-color: #ffffff;
 }
 
-nav li:hover > button:hover ~ a {
+nav ul li:hover > button:hover ~ a {
   background-color: rgb(145, 0, 0);
 }
 
-
-.controles {
-  padding: 2rem;
-}
-
-.controles button {
-  padding: 1rem 2rem;
-}
-
-.flutuante {
+#menu {
+  background-color: #ffffff;
   position: fixed;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  bottom: 2rem;
-}
-
-.flutuante button {
-  background-color: rgb(63, 63, 63);
-  width: 6rem;
-  height: 6rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  left: 1rem;
+  top: 1rem;
+  padding: 1.6rem;
   border: none;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  aspect-ratio: 1/1;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.45);
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.45);
+  transition: all .4s;
+  z-index: 100;
+}
+
+#menu .icoMenu {
+  position: relative;
+  display: block;
+  height: .2rem;
+  width: 1.6rem;
+  background-color: #000000;
+  border-radius: .2rem;
   transition: all .4s;
 }
 
-.flutuante button:hover {
-  background-color:rgb(253, 122, 0);
+#menu .icoMenu::after,
+#menu .icoMenu::before {
+  content: '';
+  background-color: #000000;
+  position: absolute;
+  width: 100%;
+  height: .2rem;
+  left: 0;
+  border-radius: .2rem;
+  transition: all .4s;
 }
 
-.flutuante button ion-icon {
-  font-size: 2.1rem;
+
+#menu .icoMenu::after {
+  top: .6rem;
+}
+
+#menu .icoMenu::before {
+  top: -.6rem;
+}
+
+#menu:hover {
+  background-color: rgb(0, 49, 141);
+}
+
+#menu:hover > .icoMenu,
+#menu:hover > .icoMenu::after,
+#menu:hover > .icoMenu::before {
+  background-color: white;
+}
+
+#controles {
+  top: 1rem;
+  padding: 1rem;
+  background-color: red;
+  position: fixed;
+  display: none;
+  max-width: 30rem;
+  margin-left: 6rem;
+  gap: .8rem;
+  flex-direction: column;
+  z-index: 100;
+  opacity: 0;
+  transition: all 1s;
+}
+
+#controles.active {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
+
+#controles button {
+  border: none;
+  border-radius: .4rem;
+  padding: 1.4rem 2rem;
 }
 
 
